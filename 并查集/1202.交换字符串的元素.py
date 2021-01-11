@@ -1,5 +1,12 @@
 #!usr/bin/env python
 # _*_ coding:utf8 _*_
+
+'''
+难点：
+1、题目联想并查集
+2、并查集输入索引，而非字符；排序根据字符，而非索引
+'''
+
 from collections import defaultdict
 class bingchaji:
     def __init__(self, n):
