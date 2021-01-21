@@ -28,8 +28,27 @@ class KMP:
 
 
 
-s = Solution()
-print(s.strStr('ABABABABC', 'ABABC'))
+class Solution:
+    def maximumProduct(self, nums):
+        if len(nums)==3: return nums[0]*nums[1]*nums[2]
+        min1, min2, max1, max2, max3 = float('inf'), float('inf'), float('-inf'), float('-inf'), float('-inf')
+        for a in nums:
+            if a<min1:
+                min1, min2 = a, min1
+            elif a<min2:
+                min2 = a
+            if a>max3:
+                max3, max2, max1 = a, max3, max2
+            elif a>max2:
+                max2, max1=a, max2
+            elif a>max1:
+                max1 = a
+        return min1*min2*max3 if min1*min2*max3 > max1*max2*max3 else max1*max2*max3
 
-s = KMP()
-print(s.strStr('ABABABABC', 'ABABC'))
+
+
+s = Solution()
+print(s.maximumProduct([-100,-98,-1,2,3,4]))
+
+# s = KMP()
+# print(s.strStr('ABABABABC', 'ABABC'))
