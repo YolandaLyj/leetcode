@@ -1,9 +1,9 @@
 # 困难：
 # 想到维护两个平衡的堆
 # 增加删减时候注意堆的平衡
-
+import heapq
 class Solution:
-    def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+    def medianSlidingWindow(self, nums, k):
         min_heap, max_heap = [], []
         for i in range(k):
             heapq.heappush(min_heap, (nums[i], i))
